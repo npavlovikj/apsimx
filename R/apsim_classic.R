@@ -30,10 +30,7 @@ apsim <- function(file = "", src.dir = ".",
                   cleanup = FALSE,
                   simplify = TRUE){
   
-  if(.Platform$OS.type != "windows"){
-    stop("This is only for windows. Use apsimx instead.")
-  }
-    
+   
   if(file == "") stop("need to specify file name")
   
   ## This checks that there are no spaces in the path
@@ -118,10 +115,7 @@ apsim <- function(file = "", src.dir = ".",
 #' @noRd
 auto_detect_apsim <- function(){
 
-  if(.Platform$OS.type != "windows"){
-    stop("This is only for windows. Use auto_detect_apsimx instead.")
-  }
-  
+ 
   ## Internal function to split APSIM name
   fev <- function(x) as.numeric(strsplit(x, "r", fixed = TRUE)[[1]][2])
   fmv <- function(x){
@@ -211,10 +205,7 @@ auto_detect_apsim <- function(){
 
 auto_detect_apsim_examples <- function(){
   
-  if(.Platform$OS.type != "windows"){
-    stop("This is only for windows. Use auto_detect_apsimx_examples instead.")
-  }
-  
+ 
   ## Internal function to split APSIM name
   fev <- function(x) as.numeric(strsplit(x, "r", fixed = TRUE)[[1]][2])
   
@@ -277,9 +268,6 @@ auto_detect_apsim_examples <- function(){
 
 apsim_example <- function(example = "Millet", silent = FALSE, tmp.dir = NULL){
 
-  if(.Platform$OS.type != "windows"){
-    stop("This is only for windows. Use apsimx_example instead.")
-  }
   ## Write to a temp dir only
   if(missing(tmp.dir)) tmp.dir <- "."
   ## Run a limited set of examples
