@@ -136,7 +136,6 @@ auto_detect_apsim <- function(){
     regcmd <- try(utils::readRegistry("APSIMFile\\shell\\open\\command", "HCR")[[1]], silent = TRUE)
     if(inherits(regcmd, "try-error")) regcmd <- try(utils::readRegistry("APSIMFile\\shell\\open\\command", "HCU")[[1]], silent = TRUE)
     if(inherits(regcmd, "try-error")) regcmd <- try(utils::readRegistry("APSIMFile\\shell\\open\\command", "HLM")[[1]], silent = TRUE)
-    if(inherits(regcmd, "try-error")) stop("Could not find APSIM Classic in the Windows Registry")
     regcmd2 <- gsub("\\\\", "/", strsplit(regcmd, "\"")[[1]][2])
     apsim_dir <- gsub("UI", "Models", regcmd2)
     if(length(apsim_dir) == 0) stop("APSIM Classic was not found and no 'exe.path' exists.")
